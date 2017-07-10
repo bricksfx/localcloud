@@ -3,9 +3,18 @@ package com.brickstar.localcloud.bean;
 /**
  * Created by bricks on 17-6-27.
  */
-public class Test {
+public class Test<T> {
     private String id;
     private String name;
+    private T data;
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 
     public String getId() {
         return id;
