@@ -14,7 +14,7 @@
 
 ### 二.读取
 #### 2.1 列表
-> /file/list POST
+> /file/list GET
 
 ##### 输入
     {
@@ -40,7 +40,7 @@
     }
 
 #### 2.2 文件详情
-> /file get
+> /file/info GET
 
 ##### 输入
     {
@@ -74,3 +74,22 @@
     
 ##### 输出
     文件流
+
+### 三.配置  
+#### 3.1 远程连接
+> /config/connection get
+
+##### 输入 暂定
+    {
+    	"hash": "0b28d97a77822d27c2695caea196596c003e91fb"  //文件hash
+    }
+    
+##### 输出
+    {
+        error_no: 0,
+        error_msg: "",
+        data: {
+            token: "abc123",
+            sign: "wertyuiop[!@#$%^&*()_"
+        }
+    }
