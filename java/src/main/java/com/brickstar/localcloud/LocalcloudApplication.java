@@ -13,6 +13,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import com.brickstar.localcloud.util.StorageService;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
@@ -44,6 +47,16 @@ public class  LocalcloudApplication {
 		return new ServletRegistrationBean(new UpServlet(), "/bigupload");// ServletName默认值为首字母小写，即myServlet
 	}
 
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("*");
+			}
+		};
+	}
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {

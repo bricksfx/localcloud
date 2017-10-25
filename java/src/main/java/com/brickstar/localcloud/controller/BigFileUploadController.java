@@ -1,5 +1,6 @@
 package com.brickstar.localcloud.controller;
 
+import com.brickstar.localcloud.util.BaseResponse;
 import com.brickstar.localcloud.util.Response;
 import org.apache.tomcat.util.http.fileupload.FileItemIterator;
 import org.apache.tomcat.util.http.fileupload.FileItemStream;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -25,10 +27,23 @@ import java.util.concurrent.TimeoutException;
  */
 @RestController
 public class BigFileUploadController {
+
+
+    @RequestMapping(value = "/upload/requestion")
+    public BaseResponse<Map<String,Integer>> UploadPreCheck(){
+        BaseResponse<Map<String,Integer>> response = new BaseResponse<>();
+        Map<String,Integer> data = new HashMap<>();
+        data.put("src_trans",0);
+        response.setData(data);
+        return response;
+    }
+
+
     @RequestMapping(value="/bigupload", method = RequestMethod.POST)
     public Response upload(final HttpServletRequest request) throws Exception{
         return new Response(true,"test","test");
     }
+
 
 
 }
