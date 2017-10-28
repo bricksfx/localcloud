@@ -38,12 +38,17 @@ public class BigFileUploadController {
         return response;
     }
 
+    @RequestMapping(value = "/upload/execres",method = RequestMethod.POST)
+    public BaseResponse<String> sliceUpload(){
+        BaseResponse<String> response = new BaseResponse<>();
+        return response;
+    }
+
 
     @RequestMapping(value="/bigupload", method = RequestMethod.POST)
     public Response upload(final HttpServletRequest request) throws Exception{
         return new Response(true,"test","test");
     }
-
 
 
 }

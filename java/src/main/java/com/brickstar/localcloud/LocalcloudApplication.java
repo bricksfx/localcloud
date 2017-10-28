@@ -44,7 +44,7 @@ public class  LocalcloudApplication {
 
 	@Bean
 	public ServletRegistrationBean servletRegistrationBean() {
-		return new ServletRegistrationBean(new UpServlet(), "/bigupload");// ServletName默认值为首字母小写，即myServlet
+		return new ServletRegistrationBean(new UpServlet(), "/upload/exec");// ServletName默认值为首字母小写，即myServlet
 	}
 
 
